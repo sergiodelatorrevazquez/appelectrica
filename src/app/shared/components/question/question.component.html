@@ -1,0 +1,6 @@
+<ion-item class="ion-margin-vertical">
+  <ion-select [label]="pregunta" labelPlacement="floating" cancelText="Cancelar" interface="action-sheet"
+    [(ngModel)]="respuestaSeleccionada" [formControl]="control" required>
+    <ion-select-option *ngFor="let respuesta of respuestas" [value]="respuesta">{{ respuesta }}</ion-select-option>
+  </ion-select>
+</ion-item>
