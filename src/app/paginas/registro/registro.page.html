@@ -4,8 +4,6 @@
   <div class="content d-flex-center">
     <form (keyup.enter)="onSubmit()" (ngSubmit)="onSubmit()" class="ion-text-center">
 
-      <div class="margen">
-
         <h2 class="ion-margin-vertical">Datos personales</h2>
 
         <app-input [control]="form.controls.nombre" type="text" label="Nombre" icon="person-outline"></app-input>
@@ -34,58 +32,7 @@
           <div *ngIf="form.controls.confirmPassword.errors?.['noMatch']">Las contraseñas no coinciden.</div>
         </div>
 
-      </div>
-
-      <div class="margen">
-
-        <h2 class="ion-margin-vertical">Formulario</h2>
-
-        <app-question [pregunta]="preguntas[0].pregunta"
-          [respuestas]="preguntas[0].respuestas" [control]="form2.controls.respuesta0"></app-question>
-        <div class="validators" *ngIf="form2.controls.respuesta0.errors && form2.controls.respuesta0.dirty">
-          <div *ngIf="form2.controls.respuesta0.errors?.['required']">Seleccione uno.</div>
-        </div>
-
-        <app-question [pregunta]="preguntas[1].pregunta"
-          [respuestas]="preguntas[1].respuestas" [control]="form2.controls.respuesta1"></app-question>
-        <div class="validators" *ngIf="form2.controls.respuesta1.errors && form2.controls.respuesta1.dirty">
-          <div *ngIf="form2.controls.respuesta1.errors?.['required']">Seleccione uno.</div>
-        </div>
-
-        <app-question [pregunta]="preguntas[2].pregunta"
-          [respuestas]="preguntas[2].respuestas" [control]="form2.controls.respuesta2"></app-question>
-        <div class="validators" *ngIf="form2.controls.respuesta2.errors && form2.controls.respuesta2.dirty">
-          <div *ngIf="form2.controls.respuesta2.errors?.['required']">Seleccione uno.</div>
-        </div>
-
-        <app-question [pregunta]="preguntas[3].pregunta"
-          [respuestas]="preguntas[3].respuestas" [control]="form2.controls.respuesta3"></app-question>
-        <div class="validators" *ngIf="form2.controls.respuesta3.errors && form2.controls.respuesta3.dirty">
-          <div *ngIf="form2.controls.respuesta3.errors?.['required']">Seleccione uno.</div>
-        </div>
-
-        <app-question [pregunta]="preguntas[4].pregunta"
-          [respuestas]="preguntas[4].respuestas" [control]="form2.controls.respuesta4"></app-question>
-        <div class="validators" *ngIf="form2.controls.respuesta4.errors && form2.controls.respuesta4.dirty">
-          <div *ngIf="form2.controls.respuesta4.errors?.['required']">Seleccione uno.</div>
-        </div>
-
-        <app-question [pregunta]="preguntas[5].pregunta"
-          [respuestas]="preguntas[5].respuestas" [control]="form2.controls.respuesta5"></app-question>
-        <div class="validators" *ngIf="form2.controls.respuesta5.errors && form2.controls.respuesta5.dirty">
-          <div *ngIf="form2.controls.respuesta5.errors?.['required']">Seleccione uno.</div>
-        </div>
-
-        <app-question [pregunta]="preguntas[6].pregunta"
-          [respuestas]="preguntas[6].respuestas" [control]="form2.controls.respuesta6"></app-question>
-        <div class="validators" *ngIf="form2.controls.respuesta6.errors && form2.controls.respuesta6.dirty">
-          <div *ngIf="form2.controls.respuesta6.errors?.['required']">Seleccione uno.</div>
-        </div>
-
-      </div>
-
-
-      <ion-button class="ion-margin-vertical" [disabled]="form.invalid // form2.invalid" type="submit" shape="round">
+      <ion-button class="ion-margin-vertical" [disabled]="form.invalid" type="submit" shape="round">
         Registrarse
         <ion-icon slot="end" name="log-in-outline"></ion-icon>
       </ion-button>

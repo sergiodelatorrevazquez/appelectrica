@@ -8,9 +8,10 @@ import {
   authState,
   signOut
 } from '@angular/fire/auth'; 
-import { Firestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, doc, getDoc, setDoc } from '@angular/fire/firestore';
 import { Usuario } from '../models/usuario.model';
 import { UtilsService } from './utils.service';
+import { Answer } from '../models/answer.model';
 
 @Injectable({
   providedIn: 'root'
@@ -48,15 +49,10 @@ export class FirebaseService {
   }
 
   // FIRESTORE
-  async getCollection(path: string){
-    const docRef = doc(this.db, path);
-    const docSnap = await getDoc(docRef);
-
-    return docSnap;
-  }
-
-  async addToCollection(userId: string, data: any){
-    await setDoc(doc(this.db, "users", userId), data)
+  async addAnswer(answer: Answer, userId: string, cnt: number){
+    let respuesta = "respuestas/" + JSON.stringify(cnt);
+    let path = `users/${userId}`;
+    await setDoc(doc(this.db, path, respuesta), answer); 
   }
 }
 

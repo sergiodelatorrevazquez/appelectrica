@@ -66,3 +66,15 @@ ion-item{
     justify-content: center;
     align-items: center;
 }
+
+.new-form{
+    --height: 95%;
+    --border-radius: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .new-form{
+        --height: 100%;
+        --border-radius: 0px;
+    }
+}

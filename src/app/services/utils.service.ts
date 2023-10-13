@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, AlertOptions, LoadingController, LoadingOptions, ToastController, ToastOptions } from '@ionic/angular';
+import { AlertController, AlertOptions, LoadingController, LoadingOptions, ModalController, ModalOptions, ToastController, ToastOptions } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,8 @@ export class UtilsService {
     private loadingController: LoadingController,
     private router: Router,
     private toastController: ToastController,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private modalController: ModalController
   ) { }
 
 
@@ -47,7 +48,24 @@ export class UtilsService {
   // ALERTA
   async presentAlert(options: AlertOptions) {
     const alert = await this.alertController.create(options);
-  
+
     await alert.present();
+  }
+
+  // MODAL
+  async presentModal(options: ModalOptions) {
+    const modal = await this.modalController.create(options);
+
+    await modal.present();
+
+    const { data } = await modal.onWillDismiss();
+
+    if (data) {
+      return data;
+    }
+  }
+
+  dismissModal(data?: any) {
+    this.modalController.dismiss(data);
   }
 }

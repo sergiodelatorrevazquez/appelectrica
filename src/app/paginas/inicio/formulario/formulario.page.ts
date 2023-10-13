@@ -77,7 +77,7 @@ export class FormularioPage implements OnInit {
     let user: Usuario = this.utilsService.getElementFromLocalStorage('usuario');
     let path = `users/${user.uid}`
 
-    this.firebaseService.getCollection(path)
+    /*this.firebaseService.getCollection(path)
       .then(response => {
         console.log(response)
         this.respuestas = response
@@ -85,6 +85,7 @@ export class FormularioPage implements OnInit {
       .catch(error => {
         console.log(error)
       })
+      */
   }
 
 }

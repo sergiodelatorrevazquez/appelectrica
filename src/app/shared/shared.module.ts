@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { InputComponent } from './components/input/input.component';
 import { HeaderComponent } from './components/header/header.component';
 import { QuestionComponent } from './components/question/question.component';
+import { NewFormComponent } from './components/new-form/new-form.component';
 
 
 
@@ -13,12 +14,14 @@ import { QuestionComponent } from './components/question/question.component';
   declarations: [
     InputComponent,
     HeaderComponent,
-    QuestionComponent
+    QuestionComponent,
+    NewFormComponent
   ],
   exports: [
     InputComponent,
     HeaderComponent,
-    QuestionComponent
+    QuestionComponent,
+    NewFormComponent
   ],
   imports: [
     CommonModule,
