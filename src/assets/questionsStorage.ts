@@ -29,12 +29,12 @@ export const questionsStorage = [
       {
         id: '5',
         pregunta: '¿Posee aire acondicionado?',
-        respuestas: ['NS/NC', 'Sí', 'No']
+        respuestas: ['NS/NC', 'No', 'Sí']
       },
       {
         id: '6',
         pregunta: '¿Tiene instalación de autoconsumo?',
-        respuestas: ['NS/NC', 'Sí', 'No']
+        respuestas: ['NS/NC', 'No', 'Sí']
       },
       {
         id: '7',

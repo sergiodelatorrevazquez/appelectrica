@@ -38,7 +38,7 @@ export class InicioSesionPage implements OnInit {
           }
 
           this.utilsService.setElementInLocalStorage('usuario', usuario);
-          this.utilsService.routerLink('/inicio/perfil');
+          this.utilsService.routerLink('/inicio/home');
 
           this.utilsService.dismissLoading();
 

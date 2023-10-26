@@ -4,8 +4,6 @@
   <div class="content d-flex-center">
     <form (keyup.enter)="onSubmit()" (ngSubmit)="onSubmit()" class="ion-text-center">
 
-        <h2 class="ion-margin-vertical">Datos personales</h2>
-
         <app-input [control]="form.controls.nombre" type="text" label="Nombre" icon="person-outline"></app-input>
         <div class="validators" *ngIf="form.controls.nombre.errors && form.controls.nombre.dirty">
           <div *ngIf="form.controls.nombre.errors?.['required']">Inserte su nombre.</div>

@@ -44,6 +44,8 @@ export class RegistroPage implements OnInit {
             email: response.user.email
           }
 
+          this.firebaseService.addUser(usuario);
+          
           this.utilsService.setElementInLocalStorage('usuario', usuario);
 
           this.utilsService.dismissLoading();
@@ -53,9 +55,7 @@ export class RegistroPage implements OnInit {
             cssClass: 'new-form'
           })
 
-          this.utilsService.routerLink('/inicio/perfil');
-
-          // this.firebaseService.addToCollection(response.user.uid, respuestas)
+          this.utilsService.routerLink('/inicio/home');
 
           this.utilsService.presentToast({
             message: `Bienvenido ${usuario.nombre}`,
@@ -76,7 +76,6 @@ export class RegistroPage implements OnInit {
             icon: 'alert-outline'
           })
         })
-      // await this.firebaseService.addAnswer()
     }
   }
 
@@ -87,13 +86,6 @@ export class RegistroPage implements OnInit {
     ])
 
     this.form.controls.confirmPassword.updateValueAndValidity();
-  }
-
-  newForm() {
-    this.utilsService.presentModal({
-      component: NewFormComponent,
-      cssClass: 'new-form'
-    })
   }
 
 }

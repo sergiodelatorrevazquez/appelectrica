@@ -71,10 +71,3 @@ ion-item{
     --height: 95%;
     --border-radius: 20px;
 }
-
-@media screen and (max-width: 768px) {
-    .new-form{
-        --height: 100%;
-        --border-radius: 0px;
-    }
-}

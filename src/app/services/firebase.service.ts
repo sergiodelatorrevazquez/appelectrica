@@ -8,7 +8,7 @@ import {
   authState,
   signOut
 } from '@angular/fire/auth'; 
-import { Firestore, collection, addDoc, doc, getDoc, setDoc } from '@angular/fire/firestore';
+import { Firestore, collection, doc, getDoc, getDocs, setDoc } from '@angular/fire/firestore';
 import { Usuario } from '../models/usuario.model';
 import { UtilsService } from './utils.service';
 import { Answer } from '../models/answer.model';
@@ -50,9 +50,26 @@ export class FirebaseService {
 
   // FIRESTORE
   async addAnswer(answer: Answer, userId: string, cnt: number){
-    let respuesta = "respuestas/" + JSON.stringify(cnt);
     let path = `users/${userId}`;
+    let respuesta = "respuestas/" + JSON.stringify(cnt);
     await setDoc(doc(this.db, path, respuesta), answer); 
   }
+
+  async getAnswers(path: string){
+    const querySnapshot = await getDocs(collection(this.db, path));
+    return querySnapshot;
+  }
+
+  async addUser(usuario: Usuario,){
+    let path = `users/${usuario.uid}`;
+    let path2 = `user/${usuario.uid}`;
+    await setDoc(doc(this.db, path, path2), usuario); 
+  }
+
+  async getUser(path: string){
+    const docSnapshot = await getDoc(doc(this.db, path));
+    return docSnapshot;
+  }
+
 }
 
