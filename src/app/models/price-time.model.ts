@@ -1,4 +1,4 @@
 export interface PriceTime{
     time: string,
-    value: string
+    value: number
 }

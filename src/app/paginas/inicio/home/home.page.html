@@ -9,25 +9,67 @@
 
       <ion-row>
 
-        <ion-col *ngFor="let x of priceTime" size-lg="6" size-md="6" size-sm="12" size="12">
+        <ion-col size="6">
 
-          <ion-card mode="ios">
+          <div class="circle-container success">
+            <p class="small-text">Más barato:</p>
+            <p class="large-text">{{ priceTime[minIndex].value }}€/kWh</p>
+            <p class="small-text">A las {{ priceTime[minIndex].time }}h</p>
+          </div>
 
-            <div class="title">
-              {{ x.time }}
-            </div>
+        </ion-col>
 
-            <div>
-              {{ x.value }}
-            </div>
+        <ion-col size="6">
 
-          </ion-card>
+          <div class="circle-container danger">
+            <p class="small-text">Más caro:</p>
+            <p class="large-text">{{ priceTime[maxIndex].value }}€/kWh</p>
+            <p class="small-text">A las {{ priceTime[maxIndex].time }}h</p>
+          </div>
 
         </ion-col>
 
       </ion-row>
 
+      <ion-row>
+
+        <ion-col size="12">
+
+          <app-bar-chart [priceTime]="priceTime" [mean]="mean" [max]="max" [min]="min"></app-bar-chart>
+
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row>
+
+        <ion-col size="12">
+
+          <div class="rectangle-container secondary">
+            <p class="small-text">Ahora ({{ priceTime[nowIndex].time }}h):</p>
+            <p class="large-text">{{ priceTime[nowIndex].value }}€/kWh</p>
+          </div>
+
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row>
+
+      <ion-col size="12">
+
+        <div class="rectangle-container warning">
+          <p class="small-text">Media diaria:</p>
+          <p class="large-text">{{ mean }}€/kWh</p>
+        </div>
+
+      </ion-col>
+
+      </ion-row>
+
+
     </ion-grid>
 
-  </div>  
+  </div>
+
 </ion-content>

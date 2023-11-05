@@ -33,11 +33,11 @@ ion-content{
 
 .content {
     width: 100%;
-    min-height: 88vh;
+    height: 100%;
     background: var(--ion-color-light);
     color: var(--ion-color-light-contrast);
     border-radius: 20px 20px 0 0;
-    margin-top: 5vh;
+    margin-top: 15px;
     padding: 15px 0;
 
     box-shadow: 1px -8px 40px -16px rgba(0, 0, 0, 0.35);
@@ -64,7 +64,6 @@ ion-item{
 .d-flex-center{
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .new-form{

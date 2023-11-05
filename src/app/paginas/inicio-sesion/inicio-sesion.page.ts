@@ -26,7 +26,6 @@ export class InicioSesionPage implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      this.utilsService.presentLoading({ message: 'Iniciando sesión.' });
       this.firebaseService.login(this.form.value as Usuario)
         .then(async response => {
           console.log(response)
@@ -38,9 +37,7 @@ export class InicioSesionPage implements OnInit {
           }
 
           this.utilsService.setElementInLocalStorage('usuario', usuario);
-          this.utilsService.routerLink('/inicio/home');
-
-          this.utilsService.dismissLoading();
+          this.utilsService.routerLink('/inicio/perfil');
 
           this.utilsService.presentToast({
             message: `Bienvenido ${usuario.nombre}`,
@@ -52,7 +49,6 @@ export class InicioSesionPage implements OnInit {
           this.form.reset();
         }, error => {
           console.log(error);
-          this.utilsService.dismissLoading();
 
           this.utilsService.presentToast({
             message: error,
