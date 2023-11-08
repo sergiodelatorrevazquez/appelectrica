@@ -6,7 +6,8 @@ import {
   getAuth,
   updateProfile,
   authState,
-  signOut
+  signOut,
+  sendPasswordResetEmail
 } from '@angular/fire/auth'; 
 import { Firestore, collection, doc, getDoc, getDocs, setDoc } from '@angular/fire/firestore';
 import { Usuario } from '../models/usuario.model';
@@ -46,6 +47,10 @@ export class FirebaseService {
     await signOut(this.auth);
     this.utilsService.routerLink('/inicio-sesion');
     localStorage.removeItem('usuario')
+  }
+
+  recoverPassword(email: string){
+    return sendPasswordResetEmail(this.auth, email);
   }
 
   // FIRESTORE

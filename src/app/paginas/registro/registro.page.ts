@@ -52,10 +52,10 @@ export class RegistroPage implements OnInit {
 
           await this.utilsService.presentModal({
             component: NewFormComponent,
-            cssClass: 'new-form'
+            cssClass: 'modal'
           })
 
-          this.utilsService.routerLink('/inicio/home');
+          this.utilsService.routerLink('/inicio/perfil');
 
           this.utilsService.presentToast({
             message: `Bienvenido ${usuario.nombre}`,

@@ -1,0 +1,28 @@
+<ion-content>
+
+  <app-header title="Recuperar contraseña"></app-header>
+
+  <div class="content d-flex-center">
+
+    <form (keyup.enter)="onSubmit()" (ngSubmit)="onSubmit()" class="ion-text-center">
+    
+        <app-input [control]="form.controls.email" type="email" label="Correo electrónico" icon="mail-outline"></app-input>
+        <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.dirty">
+          <div *ngIf="form.controls.email.errors?.['required']">Inserte su correo electrónico.</div>
+          <div *ngIf="form.controls.email.errors?.['email']">Inserte un correo electrónico válido.</div>
+        </div>
+    
+        <ion-button class="ion-margin-vertical" [disabled]="form.invalid" type="submit" shape="round">
+          Enviar
+          <ion-icon slot="end" name="send-outline"></ion-icon>
+        </ion-button>
+
+        <div class="sign-up">
+          <div>¿Quieres iniciar sesión?</div>
+          <a routerLink="/inicio-sesion">Iniciar sesión</a>
+        </div>
+
+    </form>
+
+  </div>
+</ion-content>

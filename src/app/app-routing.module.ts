@@ -20,6 +20,11 @@ const routes: Routes = [
     canActivate: [NoLoginGuard]
   },
   {
+    path: 'recuperacion',
+    loadChildren: () => import('./paginas/recuperacion/recuperacion.module').then( m => m.RecuperacionPageModule),
+    canActivate: [NoLoginGuard]
+  },
+  {
     path: 'inicio',
     loadChildren: () => import('./paginas/inicio/inicio.module').then( m => m.InicioPageModule),
     canActivate: [LoginGuard]

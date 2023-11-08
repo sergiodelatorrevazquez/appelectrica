@@ -1,19 +1,64 @@
-<ion-header class="ion-no-border">
+<ion-header>
+
   <ion-toolbar [color]="color ? color : 'primary'">
 
-    <div class="logo ion-margin" style="text-align: center;">
-      <img src="https://fundacionrenovables.org/wp-content/uploads/2020/10/Logo_FR_Pos.png" alt="Logo" width="200" height="50" class="d-inline-block align-text-top">
-    </div>
+    <ion-grid>
 
-    <ion-buttons slot="end">
-      <ion-button (click)="setTheme(false)" *ngIf="darkMode.value">
-        <ion-icon name="sunny-outline"></ion-icon>
-      </ion-button>
+      <ion-row>
 
-      <ion-button (click)="setTheme(true)" *ngIf="!darkMode.value">
-        <ion-icon name="moon-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    
+        <ion-col size="2" class="grid">
+
+          <ion-buttons>
+
+            <ion-button (click)="setTheme(false)" *ngIf="!isModal && darkMode.value">
+              <ion-icon name="sunny-outline" class="icono"></ion-icon>
+            </ion-button>
+      
+            <ion-button (click)="setTheme(true)" *ngIf="!isModal && !darkMode.value">
+              <ion-icon name="moon-outline" class="icono"></ion-icon>
+            </ion-button>
+      
+          </ion-buttons>
+
+        </ion-col>
+
+        <ion-col size="8" class="grid">
+
+          <div class="ion-margin">
+            <img src="https://fundacionrenovables.org/wp-content/uploads/2020/10/Logo_FR_Pos.png" alt="Logo" width="200"
+              height="50" class="d-inline-block align-text-top">
+          </div>
+
+        </ion-col>
+
+        <ion-col size="2" class="grid">
+
+          <ion-buttons>
+
+            <ion-button *ngIf="isLogged() && !isModal" (click)="logOut()">
+              <ion-icon name="log-out-outline" class="icono"></ion-icon>
+            </ion-button>
+      
+            <ion-button (click)="dismissModal()" *ngIf="isModal">
+              <ion-icon name="close-outline" class="icono"></ion-icon>
+            </ion-button>
+      
+          </ion-buttons>
+
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row>
+
+        <ion-col size="12">
+          <h1 class="ion-text-center">{{ title }}</h1>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-grid>
+
   </ion-toolbar>
+
 </ion-header>

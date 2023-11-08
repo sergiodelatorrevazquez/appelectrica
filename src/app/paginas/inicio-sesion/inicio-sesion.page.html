@@ -1,8 +1,11 @@
-<ion-content class="content">
-  <app-header></app-header>
-  <h1 class="ion-text-center ion-margin-vertical">Iniciar Sesión</h1>
+<ion-content>
+
+  <app-header title="Iniciar Sesión"></app-header>
+
   <div class="content d-flex-center">
+
     <form (keyup.enter)="onSubmit()" (ngSubmit)="onSubmit()" class="ion-text-center">
+
       <app-input [control]="form.controls.email" type="email" label="Correo electrónico"
         icon="mail-outline"></app-input>
       <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.dirty">
@@ -24,10 +27,17 @@
       <div class="sign-up">
         <div>¿No tiene cuenta?</div>
         <ion-button routerLink="/registro" class="ion-margin-vertical" shape="round">
-          Registrese
+          Registrarse
           <ion-icon slot="end" name="person-add-outline"></ion-icon>
         </ion-button>
       </div>
+
+      <div class="sign-up">
+        <div>¿Olvidaste la constraseña?</div>
+        <a routerLink="/recuperacion">Recuperar</a>
+      </div>
+
     </form>
+
   </div>
 </ion-content>

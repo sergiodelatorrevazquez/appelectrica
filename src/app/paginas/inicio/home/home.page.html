@@ -1,7 +1,5 @@
 <ion-content>
-  <app-header></app-header>
-
-  <h1 class="ion-text-center ion-margin-vertical">Inicio</h1>
+  <app-header title="Inicio"></app-header>
 
   <div class="content ion-text-center">
 
@@ -13,8 +11,8 @@
 
           <div class="circle-container success">
             <p class="small-text">Más barato:</p>
-            <p class="large-text">{{ priceTime[minIndex].value }}€/kWh</p>
-            <p class="small-text">A las {{ priceTime[minIndex].time }}h</p>
+            <p class="large-text">{{ horaMin.value }}€/kWh</p>
+            <p class="small-text">A las {{ horaMin.time }}h</p>
           </div>
 
         </ion-col>
@@ -23,8 +21,8 @@
 
           <div class="circle-container danger">
             <p class="small-text">Más caro:</p>
-            <p class="large-text">{{ priceTime[maxIndex].value }}€/kWh</p>
-            <p class="small-text">A las {{ priceTime[maxIndex].time }}h</p>
+            <p class="large-text">{{ horaMax.value }}€/kWh</p>
+            <p class="small-text">A las {{ horaMax.time }}h</p>
           </div>
 
         </ion-col>
@@ -35,7 +33,7 @@
 
         <ion-col size="12">
 
-          <app-bar-chart [priceTime]="priceTime" [mean]="mean" [max]="max" [min]="min"></app-bar-chart>
+          <app-bar-chart [priceTime]="priceTime" [mean]="mean"></app-bar-chart>
 
         </ion-col>
 

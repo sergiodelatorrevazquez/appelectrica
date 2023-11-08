@@ -31,8 +31,6 @@ export type ChartOptions = {
 export class BarChartComponent implements OnInit {
 
   @Input() priceTime: PriceTime[];
-  @Input() max: number;
-  @Input() min: number;
   @Input() mean: number;
 
   @ViewChild("chart") chart: ChartComponent;
@@ -55,7 +53,8 @@ export class BarChartComponent implements OnInit {
     const month = date.getMonth();
     const year = date.getFullYear();
 
-    const colores: string[] = this.getColor(values);
+    const max = Math.max(...values);
+    const min = Math.min(...values);
 
     this.chartOptions = {
       series: [
@@ -77,7 +76,7 @@ export class BarChartComponent implements OnInit {
           colors:{
             ranges: [
               {
-                from: this.min,
+                from: min,
                 to: this.mean - this.mean*0.1,
                 color: "#2dd36f"
               },
@@ -88,7 +87,7 @@ export class BarChartComponent implements OnInit {
               },
               {
                 from: this.mean + this.mean*0.1,
-                to: this.max,
+                to: max,
                 color: "#eb445a"
               }
             ]
@@ -153,20 +152,6 @@ export class BarChartComponent implements OnInit {
         }
       }
     };
-  }
-
-  getColor(values: number[]) {
-    let colors: string[] = [];
-    values.forEach(value => {
-      if (value < this.mean - this.mean * 0.1) {
-        colors.push("#33FF33"); // Verde
-      } else if (value > this.mean + this.mean * 0.1) {
-        colors.push("#EC1414"); // Rojo
-      } else {
-        colors.push("#FFF11B"); // Amarillo
-      }
-    });
-    return colors;
   }
 }
 

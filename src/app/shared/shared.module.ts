@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { QuestionComponent } from './components/question/question.component';
 import { NewFormComponent } from './components/new-form/new-form.component';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
+import { RecoverComponent } from './components/recover/recover.component';
 
 
 @NgModule({
@@ -17,14 +18,16 @@ import { BarChartComponent } from './components/bar-chart/bar-chart.component';
     HeaderComponent,
     QuestionComponent,
     NewFormComponent,
-    BarChartComponent
+    BarChartComponent,
+    RecoverComponent
   ],
   exports: [
     InputComponent,
     HeaderComponent,
     QuestionComponent,
     NewFormComponent,
-    BarChartComponent
+    BarChartComponent,
+    RecoverComponent
   ],
   imports: [
     CommonModule,

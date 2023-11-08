@@ -15,11 +15,9 @@ export class HomePage implements OnInit {
 
   prices: any;
   priceTime: PriceTime[] = [];
-  maxIndex: number = 0;
-  minIndex: number = 0;
+  horaMin: PriceTime;
+  horaMax: PriceTime;
   nowIndex: number = 0;
-  max: number;
-  min: number;
   mean: number;
 
   ngOnInit() {
@@ -40,40 +38,36 @@ export class HomePage implements OnInit {
         this.prices.indicator.values.forEach(x => {
           this.priceTime.push({
             time: x.datetime.substring(11, 13),
-            value: +((+x.value)/1000).toFixed(5)
+            value: +((+x.value) / 1000).toFixed(5)
           })
         });
 
-        let max = this.priceTime[0].value;
-        let min = this.priceTime[0].value;
-        let total = 0;
-
         let hour = new Date().getHours().toString();
-        if(hour.length == 1){
+        if (hour.length == 1) {
           hour = `0${hour}`;
         }
 
-        for(let i = 0; i < this.priceTime.length; i++){
-          if ((this.priceTime[i].value > max && +this.priceTime[i].time >= +hour) || (this.priceTime[i].value == max && this.maxIndex == 0)) {
-            max = this.priceTime[i].value;
-            this.maxIndex = i;
-          }
+        const priceTimeFilter = this.priceTime.filter(x => +x.time >= +hour);
 
-          if((this.priceTime[i].value < min && +this.priceTime[i].time >= +hour) || (this.priceTime[i].value == min && this.minIndex == 0)) {
-            min = this.priceTime[i].value;
-            this.minIndex = i;
-          }
+        this.horaMin = priceTimeFilter.reduce((min, x) => {
+          return x.value < min.value ? x : min;
+        }, priceTimeFilter[0]);
 
-          if(this.priceTime[i].time == hour){
+        this.horaMax = priceTimeFilter.reduce((max, x) => {
+          return x.value > max.value ? x : max;
+        }, priceTimeFilter[0]);
+
+        let total = 0;
+
+        for (let i = 0; i < this.priceTime.length; i++) {
+          if (this.priceTime[i].time == hour) {
             this.nowIndex = i;
           }
 
           total += this.priceTime[i].value;
         }
 
-        this.max = max;
-        this.min = min;
-        this.mean = +((total/this.priceTime.length).toFixed(5));
+        this.mean = +((total / this.priceTime.length).toFixed(5));
       }
     )
   }
