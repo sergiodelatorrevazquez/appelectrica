@@ -1,13 +1,13 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { ApiService } from 'src/app/services/api.service';
 import { PriceTime } from 'src/app/models/price-time.model';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  selector: 'app-precios-inv',
+  templateUrl: './precios-inv.page.html',
+  styleUrls: ['./precios-inv.page.scss'],
 })
-export class HomePage implements OnInit {
+export class PreciosInvPage implements OnInit {
 
   apiService = inject(ApiService);
 
@@ -83,5 +83,4 @@ export class HomePage implements OnInit {
       }
     )
   }
-
 }

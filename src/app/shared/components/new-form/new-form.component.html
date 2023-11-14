@@ -1,15 +1,17 @@
 <form (keyup.enter)="onSubmit()" (ngSubmit)="onSubmit()" class="ion-text-center">
 
-  <div class="margen">
+  <div>
 
     <h2 class="ion-margin-vertical">Formulario</h2>
 
-    <app-question [pregunta]="pregunta" [respuestas]="respuestas" [control]="form.controls.respuesta"></app-question>
+    <h4>{{ pregunta }}</h4>
+
+    <app-question [respuestas]="respuestas" [control]="form.controls.respuesta"></app-question>
     <div class="validators" *ngIf="form.controls.respuesta.errors && form.controls.respuesta.dirty">
       <div *ngIf="form.controls.respuesta.errors?.['required']">Seleccione uno.</div>
     </div>
 
-    <ion-button class="ion-margin-vertical" [disabled]="form.invalid" type="submit" shape="round">
+    <ion-button class="ion-margin-vertical" [disabled]="form.invalid" type="submit" shape="round" mode="ios">
       Guardar
       <ion-icon slot="end" name="save-outline"></ion-icon>
     </ion-button>

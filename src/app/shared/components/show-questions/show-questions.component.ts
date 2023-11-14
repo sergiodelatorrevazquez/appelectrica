@@ -3,16 +3,16 @@ import { Answer } from 'src/app/models/answer.model';
 import { Usuario } from 'src/app/models/usuario.model';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { UtilsService } from 'src/app/services/utils.service';
-import { NewFormComponent } from 'src/app/shared/components/new-form/new-form.component';
+import { NewFormComponent } from '../new-form/new-form.component';
 
 @Component({
-  selector: 'app-formulario',
-  templateUrl: './formulario.page.html',
-  styleUrls: ['./formulario.page.scss'],
+  selector: 'app-show-questions',
+  templateUrl: './show-questions.component.html',
+  styleUrls: ['./show-questions.component.scss'],
 })
-export class FormularioPage implements OnInit {
+export class ShowQuestionsComponent  implements OnInit {
 
-  respuestas: Answer[] = [];
+  respuestas: Answer[] = []
 
   constructor(
     private utilsService: UtilsService,
@@ -20,15 +20,14 @@ export class FormularioPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getForm()
-  }
-
-  ionViewWillEnter() {
+    this.getForm();
   }
 
   getForm(){
     let user: Usuario = this.utilsService.getElementFromLocalStorage('usuario');
-    let path = `users/${user.uid}/respuestas`;
+    let cuestionario: number = this.utilsService.getElementFromLocalStorage('cuestionario');
+
+    let path = `cuestionario${cuestionario}/${user.uid}/respuestas`;
 
     this.firebaseService.getAnswers(path)
     .then(res => {
@@ -42,9 +41,11 @@ export class FormularioPage implements OnInit {
   async onClick(){
     await this.utilsService.presentModal({
       component: NewFormComponent,
-      cssClass: 'new-form'
-    });
+      cssClass: 'modal'
+    })
 
+    
+    this.respuestas = [];
     this.getForm();
   }
 

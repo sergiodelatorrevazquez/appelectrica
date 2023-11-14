@@ -9,7 +9,6 @@ import { FormControl } from '@angular/forms';
 export class QuestionComponent  implements OnInit {
 
   @Input() control: FormControl;
-  @Input() pregunta: string;
   @Input() respuestas: string[];
   @Output() respuestaSeleccionada: string;
 

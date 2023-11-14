@@ -12,33 +12,33 @@ export const questionsStorage = [
       },
       {
         id: '2',
-        pregunta: '¿Cuál es el tamaño del hogar?',
-        respuestas: ['NS/NC', 'Menos de 60 metros cuadrados', 'De 60 a 120 metors cuadrados',
+        pregunta: '¿Cuánto mide tu casa?',
+        respuestas: ['NS/NC', 'Menos de 60 metros cuadrados', 'De 60 a 120 metros cuadrados',
           'Más de 120 metros cuadrados']
       },
       {
         id: '3',
-        pregunta: '¿Cuál es el estado de trabajo de los residentes?',
-        respuestas: ['NS/NC', 'Todos en casa', 'Todos fuera de casa', 'Algunos en casa y otros fuera']
+        pregunta: '¿Hay alguna persona en tu casa que pueda hacer tareas del hogar de lunes a viernes en horario laboral?',
+        respuestas: ['NS/NC', 'No', 'Sí']
       },
       {
         id: '4',
-        pregunta: '¿Posee calefacción el hogar?',
-        respuestas: ['NS/NC', 'No', 'Sí, aerotermia', 'Sí, bomba de calor', 'Sí, radiador eléctrico']
+        pregunta: '¿Qué tipo de calefacción tienes en casa?',
+        respuestas: ['NS/NC', 'No tengo', 'Gas natural, butano o propano', 'Bomba de calor', 'Caldera eléctrica']
       },
       {
         id: '5',
-        pregunta: '¿Posee aire acondicionado?',
+        pregunta: '¿Tienes aire acondicionado en casa?',
         respuestas: ['NS/NC', 'No', 'Sí']
       },
       {
         id: '6',
-        pregunta: '¿Tiene instalación de autoconsumo?',
+        pregunta: '¿Cuentas con una instalación de autoconsumo en casa?',
         respuestas: ['NS/NC', 'No', 'Sí']
       },
       {
         id: '7',
-        pregunta: '¿Cuál es el consumo energético en el último mes?',
-        respuestas: ['NS/NC', 'Entre 0 y 50 kWh', 'Entre 50 y 100 kWh', 'Entre 100 y 150 kWh', 'Entre 150 y 200 kWh']
+        pregunta: '¿Cuál ha sido tu consumo energético en el último mes?',
+        respuestas: ['NS/NC', 'Hasta 50 kWh', 'Entre 50 y 100 kWh', 'Entre 100 y 200 kWh', 'Más de 200 kWh']
       }
 ]

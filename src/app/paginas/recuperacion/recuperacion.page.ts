@@ -28,7 +28,10 @@ export class RecuperacionPage implements OnInit {
 
     await this.utilsService.presentModal({
       component: RecoverComponent,
-      cssClass: 'modal-message'
+      cssClass: 'modal-message',
+      componentProps: {
+        'texto': 'Un mensaje ha sido enviado a tu bandeja de entrada en el correo electrónico proporcionado, si este coincide con un correo electrónico válido. Pulsa el enlace para restablecer la contraseña.'
+      }
     })
   }
 

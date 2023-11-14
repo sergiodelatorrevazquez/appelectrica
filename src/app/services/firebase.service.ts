@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
-import { 
-  Auth, 
-  signInWithEmailAndPassword, 
+import {
+  Auth,
+  signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   getAuth,
   updateProfile,
   authState,
   signOut,
   sendPasswordResetEmail
-} from '@angular/fire/auth'; 
-import { Firestore, collection, doc, getDoc, getDocs, setDoc } from '@angular/fire/firestore';
+} from '@angular/fire/auth';
+import { Firestore, collection, doc, getDoc, getDocs, setDoc, query } from '@angular/fire/firestore';
 import { Usuario } from '../models/usuario.model';
 import { UtilsService } from './utils.service';
 import { Answer } from '../models/answer.model';
+import { PriceTime } from '../models/price-time.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,54 +27,52 @@ export class FirebaseService {
   ) { }
 
   // AUTENTICACION
-  login(usuario: Usuario){
+  login(usuario: Usuario) {
     return signInWithEmailAndPassword(this.auth, usuario.email, usuario.password)
   }
 
-  signUp(usuario: Usuario){
+  signUp(usuario: Usuario) {
     return createUserWithEmailAndPassword(this.auth, usuario.email, usuario.password)
   }
 
-  updateUser(usuario: any){
+  updateUser(usuario: any) {
     const auth = getAuth();
     return updateProfile(auth.currentUser, usuario)
   }
 
-  getAuthState(){
+  getAuthState() {
     return authState;
   }
 
-  async signOut(){
+  async signOut() {
     await signOut(this.auth);
     this.utilsService.routerLink('/inicio-sesion');
     localStorage.removeItem('usuario')
   }
 
-  recoverPassword(email: string){
+  recoverPassword(email: string) {
     return sendPasswordResetEmail(this.auth, email);
   }
 
   // FIRESTORE
-  async addAnswer(answer: Answer, userId: string, cnt: number){
-    let path = `users/${userId}`;
+  async addAnswer(cuestionario: number, userId: string, answer: Answer, cnt: number) {
+    let path = `cuestionario${cuestionario}/${userId}`;
     let respuesta = "respuestas/" + JSON.stringify(cnt);
-    await setDoc(doc(this.db, path, respuesta), answer); 
+    await setDoc(doc(this.db, path, respuesta), answer);
   }
 
-  async getAnswers(path: string){
+  async getAnswers(path: string) {
     const querySnapshot = await getDocs(collection(this.db, path));
     return querySnapshot;
   }
 
-  async addUser(usuario: Usuario,){
-    let path = `users/${usuario.uid}`;
-    let path2 = `user/${usuario.uid}`;
-    await setDoc(doc(this.db, path, path2), usuario); 
+  async addAPI(priceTime: PriceTime[]){
+    await setDoc(doc(this.db, "API", "Uq8OLkPDnMbEcIlGdxVD"), { 'priceTime': priceTime });
   }
 
-  async getUser(path: string){
-    const docSnapshot = await getDoc(doc(this.db, path));
-    return docSnapshot;
+  async getAPI(){
+    const querySnapshot = await getDocs(collection(this.db, "API/Uq8OLkPDnMbEcIlGdxVD"));
+    return querySnapshot;
   }
 
 }

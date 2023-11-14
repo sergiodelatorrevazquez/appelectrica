@@ -1,0 +1,34 @@
+<ion-content color="light">
+
+  <app-header-modal></app-header-modal>
+
+  <div class="content ion-text-center">
+
+    <ion-grid>
+
+      <ion-row>
+
+        <ion-col *ngFor="let respuesta of respuestas" size="12">
+
+          <div class="title">
+            {{ respuesta.pregunta }}
+          </div>
+
+          <div>
+            {{ respuesta.respuesta }}
+          </div>
+
+        </ion-col>
+
+      </ion-row>
+
+    </ion-grid>
+
+    <ion-button (click)="onClick()" class="ion-margin-vertical" shape="round" mode="ios">
+      Modificar cuestionario
+      <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+
+  </div>
+
+</ion-content>

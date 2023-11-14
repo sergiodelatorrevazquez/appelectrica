@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavParams } from '@ionic/angular';
 
 @Component({
   selector: 'app-recover',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecoverComponent  implements OnInit {
 
-  constructor(
-  ) { }
+  texto: string;
+
+  constructor(navParams: NavParams) { 
+    this.texto = navParams.get('texto');
+  }
 
   ngOnInit() {}
 

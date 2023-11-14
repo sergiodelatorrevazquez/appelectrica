@@ -4,6 +4,7 @@ import { Usuario } from 'src/app/models/usuario.model';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { UtilsService } from 'src/app/services/utils.service';
 import { NewFormComponent } from 'src/app/shared/components/new-form/new-form.component';
+import { RecoverComponent } from 'src/app/shared/components/recover/recover.component';
 import { CustomValidators } from 'src/app/utils/custom-validators';
 
 @Component({
@@ -43,17 +44,29 @@ export class RegistroPage implements OnInit {
             nombre: response.user.displayName,
             email: response.user.email
           }
-
-          this.firebaseService.addUser(usuario);
           
           this.utilsService.setElementInLocalStorage('usuario', usuario);
 
           this.utilsService.dismissLoading();
 
+          this.utilsService.setElementInLocalStorage('cuestionario', 1);
+
           await this.utilsService.presentModal({
             component: NewFormComponent,
             cssClass: 'modal'
           })
+
+          this.utilsService.deleteElementFromLocalStorage('cuestionario');
+
+          /*
+          await this.utilsService.presentModal({
+            component: RecoverComponent,
+            cssClass: 'modal-message',
+            componentProps: {
+              'texto': 'Fundación Renovables es ...'
+            }
+          })
+          */
 
           this.utilsService.routerLink('/inicio/perfil');
 

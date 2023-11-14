@@ -1,58 +1,50 @@
 <ion-header>
 
-  <ion-toolbar [color]="color ? color : 'primary'">
+  <ion-toolbar color="light">
 
     <ion-grid>
 
       <ion-row>
 
-        <ion-col size="2" class="grid">
-
-          <ion-buttons>
-
-            <ion-button (click)="setTheme(false)" *ngIf="!isModal && darkMode.value">
-              <ion-icon name="sunny-outline" class="icono"></ion-icon>
-            </ion-button>
-      
-            <ion-button (click)="setTheme(true)" *ngIf="!isModal && !darkMode.value">
-              <ion-icon name="moon-outline" class="icono"></ion-icon>
-            </ion-button>
-      
-          </ion-buttons>
-
-        </ion-col>
-
-        <ion-col size="8" class="grid">
+        <ion-col size="8">
 
           <div class="ion-margin">
-            <img src="https://fundacionrenovables.org/wp-content/uploads/2020/10/Logo_FR_Pos.png" alt="Logo" width="200"
-              height="50" class="d-inline-block align-text-top">
+            <img src="https://fundacionrenovables.org/wp-content/uploads/2020/10/Logo_FR_Pos.png" alt="Logo" width="170"
+              class="d-inline-block align-text-top">
           </div>
 
         </ion-col>
 
-        <ion-col size="2" class="grid">
+        <ion-col size="4" class="grid">
 
           <ion-buttons>
 
-            <ion-button *ngIf="isLogged() && !isModal" (click)="logOut()">
+            <ion-button *ngIf="!isLogged() && inv" routerLink="/inicio-sesion">
+              <ion-icon name="log-in-outline" class="icono"></ion-icon>
+            </ion-button>
+
+            <ion-button *ngIf="!isLogged() && !inv" routerLink="/precios-inv">
+              <ion-icon name="cash-outline" class="icono"></ion-icon>
+            </ion-button>
+
+            <ion-button *ngIf="isLogged()" (click)="logOut()">
               <ion-icon name="log-out-outline" class="icono"></ion-icon>
             </ion-button>
-      
-            <ion-button (click)="dismissModal()" *ngIf="isModal">
-              <ion-icon name="close-outline" class="icono"></ion-icon>
-            </ion-button>
-      
+
           </ion-buttons>
 
-        </ion-col>
+          <ion-buttons>
 
-      </ion-row>
+            <ion-button (click)="setTheme(false)" *ngIf="darkMode.value">
+              <ion-icon name="sunny-outline" class="icono"></ion-icon>
+            </ion-button>
 
-      <ion-row>
+            <ion-button (click)="setTheme(true)" *ngIf="!darkMode.value">
+              <ion-icon name="moon-outline" class="icono"></ion-icon>
+            </ion-button>
 
-        <ion-col size="12">
-          <h1 class="ion-text-center">{{ title }}</h1>
+          </ion-buttons>
+
         </ion-col>
 
       </ion-row>

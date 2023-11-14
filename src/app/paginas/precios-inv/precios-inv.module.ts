@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FormularioPageRoutingModule } from './formulario-routing.module';
+import { PreciosInvPageRoutingModule } from './precios-inv-routing.module';
 
-import { FormularioPage } from './formulario.page';
+import { PreciosInvPage } from './precios-inv.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    FormularioPageRoutingModule,
+    PreciosInvPageRoutingModule,
     SharedModule
   ],
-  declarations: [FormularioPage]
+  declarations: [PreciosInvPage]
 })
-export class FormularioPageModule {}
+export class PreciosInvPageModule {}

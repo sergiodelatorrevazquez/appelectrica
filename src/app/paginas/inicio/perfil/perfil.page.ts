@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Answer } from 'src/app/models/answer.model';
 import { Usuario } from 'src/app/models/usuario.model';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { UtilsService } from 'src/app/services/utils.service';
+import { ShowQuestionsComponent } from 'src/app/shared/components/show-questions/show-questions.component';
 
 @Component({
   selector: 'app-perfil',
@@ -10,42 +12,25 @@ import { UtilsService } from 'src/app/services/utils.service';
 })
 export class PerfilPage implements OnInit {
 
-  usuario = {} as Usuario
+  cuestionarios = ['Cuestionario Inicial', 'Cuestionario Avanzado']
+  respuestas: Answer[] = []
 
   constructor(
-    private firebaseService: FirebaseService,
     private utilsService: UtilsService
   ) { }
 
   ngOnInit() {
-    this.getUser()
   }
 
-  ionViewWillEnter() {
-    this.getUser()
-  }
+  async onClick(cuestionario: string){
+    this.utilsService.setElementInLocalStorage('cuestionario', this.cuestionarios.indexOf(cuestionario) + 1);
 
-  getUser(){
-    return this.usuario = this.utilsService.getElementFromLocalStorage('usuario');
-  }
-
-  signOut() {
-    this.utilsService.presentAlert({
-      header: 'Cerrar Sesión',
-      message: '¿Seguro que quiere cerrar sesión?',
-      mode: 'ios',
-      buttons: [
-        {
-          text: 'No, mantener sesión iniciada',
-          role: 'cancel',
-        }, {
-          text: 'Sí, cerrar sesión',
-          handler: () => {
-            return this.firebaseService.signOut();
-          }
-        }
-      ]
+    await this.utilsService.presentModal({
+      component: ShowQuestionsComponent,
+      cssClass: 'modal'
     })
+
+    this.utilsService.deleteElementFromLocalStorage('cuestionario');
   }
 
 }

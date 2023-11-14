@@ -1,5 +1,6 @@
 <ion-content>
-  <app-header title="Registrarse"></app-header>
+  
+  <app-header></app-header>
 
   <div class="content d-flex-center">
 
@@ -31,14 +32,14 @@
           <div *ngIf="form.controls.confirmPassword.errors?.['noMatch']">Las contraseñas no coinciden.</div>
         </div>
 
-      <ion-button class="ion-margin-vertical" [disabled]="form.invalid" type="submit" shape="round">
+      <ion-button class="ion-margin-vertical" [disabled]="form.invalid" type="submit" shape="round" mode="ios">
         Registrarse
         <ion-icon slot="end" name="log-in-outline"></ion-icon>
       </ion-button>
 
       <div class="sign-up">
         <div>¿Ya tiene cuenta?</div>
-        <ion-button routerLink="/inicio-sesion" class="ion-margin-vertical" shape="round">
+        <ion-button routerLink="/inicio-sesion" class="ion-margin-vertical" shape="round" mode="ios">
           Inicie sesión
           <ion-icon slot="end" name="person-add-outline"></ion-icon>
         </ion-button>

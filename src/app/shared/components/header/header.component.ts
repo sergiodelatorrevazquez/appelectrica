@@ -10,11 +10,8 @@ import { UtilsService } from 'src/app/services/utils.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent  implements OnInit {
-
-  @Input() color: string;
-  @Input() isModal: boolean;
-  @Input() title: string;
-
+  
+  @Input() inv: boolean;
   darkMode: BehaviorSubject<boolean>;
 
   constructor(
@@ -29,10 +26,6 @@ export class HeaderComponent  implements OnInit {
 
   setTheme(darkMode: boolean){
     this.themeService.setTheme(darkMode);
-  }
-
-  dismissModal(){
-    this.utilsService.dismissModal();
   }
 
   isLogged(){

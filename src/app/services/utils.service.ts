@@ -1,6 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, AlertOptions, LoadingController, LoadingOptions, ModalController, ModalOptions, ToastController, ToastOptions } from '@ionic/angular';
+import {
+  AlertController,
+  AlertOptions,
+  LoadingController,
+  LoadingOptions,
+  ModalController,
+  ModalOptions,
+  ToastController,
+  ToastOptions
+} from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -8,13 +17,18 @@ import { AlertController, AlertOptions, LoadingController, LoadingOptions, Modal
 export class UtilsService {
 
   constructor(
-    private loadingController: LoadingController,
     private router: Router,
+    private loadingController: LoadingController,
     private toastController: ToastController,
     private alertController: AlertController,
     private modalController: ModalController
   ) { }
 
+
+  // ROUTER
+  routerLink(url: string) {
+    return this.router.navigateByUrl(url)
+  }
 
   // LOADING
   async presentLoading(options?: LoadingOptions) {
@@ -35,14 +49,13 @@ export class UtilsService {
     return JSON.parse(localStorage.getItem(key))
   }
 
+  deleteElementFromLocalStorage(key: string) {
+    localStorage.removeItem(key)
+  }
+
   async presentToast(options: ToastOptions) {
     const toast = await this.toastController.create(options);
     toast.present();
-  }
-
-  // ROUTER
-  routerLink(url: string) {
-    return this.router.navigateByUrl(url)
   }
 
   // ALERTA

@@ -1,16 +1,33 @@
 <ion-content>
-  <app-header title="Perfil del Usuario"></app-header>
+  
+  <app-header></app-header>
 
   <div class="content ion-text-center">
 
-    <ion-icon class="avatar" name="person-circle-outline"></ion-icon>
-    <h2>{{usuario.nombre}}</h2>
-    <div>{{usuario.email}}</div>
+    <ion-grid>
 
-    <ion-button (click)="signOut()" shape="round">
-      Cerrar Sesión
-      <ion-icon slot="end" name="log-out-outline"></ion-icon>
-    </ion-button>
+      <ion-row>
+
+        <ion-col *ngFor="let cuestionario of cuestionarios" size="12">
+
+          <ion-card mode="ios">
+
+            <div class="title">
+              {{ cuestionario }}
+            </div>
+
+            <ion-button (click)="onClick(cuestionario)" class="ion-margin-vertical" shape="round">
+              Acceder al cuestionario
+              <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+            </ion-button>
+
+          </ion-card>
+
+        </ion-col>
+
+      </ion-row>
+
+    </ion-grid>
 
   </div>  
 </ion-content>

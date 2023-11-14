@@ -10,6 +10,11 @@ export class ThemeService {
 
   constructor() { }
 
+  changeStorage(darkMode: boolean){
+    this.darkMode.next(darkMode);
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+  }
+
   setTheme(darkMode: boolean){
     if(darkMode){
       document.body.setAttribute('color-theme', 'dark');
@@ -17,8 +22,7 @@ export class ThemeService {
       document.body.setAttribute('color-theme', 'light');
     }
 
-    this.darkMode.next(darkMode);
-    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+    this.changeStorage(darkMode);
   }
 
   setInitialTheme(){

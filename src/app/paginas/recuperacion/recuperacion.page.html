@@ -1,6 +1,6 @@
 <ion-content>
 
-  <app-header title="Recuperar contraseña"></app-header>
+  <app-header></app-header>
 
   <div class="content d-flex-center">
 
@@ -12,7 +12,7 @@
           <div *ngIf="form.controls.email.errors?.['email']">Inserte un correo electrónico válido.</div>
         </div>
     
-        <ion-button class="ion-margin-vertical" [disabled]="form.invalid" type="submit" shape="round">
+        <ion-button class="ion-margin-vertical" [disabled]="form.invalid" type="submit" shape="round" mode="ios">
           Enviar
           <ion-icon slot="end" name="send-outline"></ion-icon>
         </ion-button>

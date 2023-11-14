@@ -10,6 +10,8 @@ import { QuestionComponent } from './components/question/question.component';
 import { NewFormComponent } from './components/new-form/new-form.component';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { RecoverComponent } from './components/recover/recover.component';
+import { HeaderModalComponent } from './components/header-modal/header-modal.component';
+import { ShowQuestionsComponent } from './components/show-questions/show-questions.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { RecoverComponent } from './components/recover/recover.component';
     QuestionComponent,
     NewFormComponent,
     BarChartComponent,
-    RecoverComponent
+    RecoverComponent,
+    HeaderModalComponent,
+    ShowQuestionsComponent
   ],
   exports: [
     InputComponent,
@@ -27,7 +31,9 @@ import { RecoverComponent } from './components/recover/recover.component';
     QuestionComponent,
     NewFormComponent,
     BarChartComponent,
-    RecoverComponent
+    RecoverComponent,
+    HeaderModalComponent,
+    ShowQuestionsComponent
   ],
   imports: [
     CommonModule,

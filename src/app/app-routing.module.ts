@@ -10,6 +10,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'precios-inv',
+    loadChildren: () => import('./paginas/precios-inv/precios-inv.module').then( m => m.PreciosInvPageModule),
+    canActivate: [NoLoginGuard]
+  },
+  {
     path: 'inicio-sesion',
     loadChildren: () => import('./paginas/inicio-sesion/inicio-sesion.module').then( m => m.InicioSesionPageModule),
     canActivate: [NoLoginGuard]
@@ -28,7 +33,7 @@ const routes: Routes = [
     path: 'inicio',
     loadChildren: () => import('./paginas/inicio/inicio.module').then( m => m.InicioPageModule),
     canActivate: [LoginGuard]
-  },
+  }
 ];
 
 @NgModule({

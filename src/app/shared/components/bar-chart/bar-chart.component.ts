@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, SimpleChanges, } from '@angular/core';
 import { PriceTime } from 'src/app/models/price-time.model';
 import {
   ApexAxisChartSeries,
@@ -32,16 +32,20 @@ export class BarChartComponent implements OnInit {
 
   @Input() priceTime: PriceTime[];
   @Input() mean: number;
+  @Input() darkMode: boolean;
 
   @ViewChild("chart") chart: ChartComponent;
-  public chartOptions: Partial<ChartOptions>;
+  public chartOptions: Partial<ChartOptions>;;
 
-  constructor() {
-
-  }
+  constructor(
+  ) {  }
 
   ngOnInit() {
-    this.createChart();
+    this.createChart()
+  }
+
+  ngOnChanges(){
+    this.createChart()
   }
 
   createChart() {
@@ -106,7 +110,10 @@ export class BarChartComponent implements OnInit {
         categories: hours,
         position: "top",
         labels: {
-          offsetY: -18
+          offsetY: -18,
+          style: {
+            colors: "#7F7F7F"
+          },
         },
         axisBorder: {
           show: false
@@ -139,7 +146,7 @@ export class BarChartComponent implements OnInit {
           show: false
         },
         labels: {
-          show: true,
+          show: false
         }
       },
       title: {
@@ -148,7 +155,7 @@ export class BarChartComponent implements OnInit {
         offsetY: 330,
         align: "center",
         style: {
-          color: "#444"
+          color: "#7F7F7F"
         }
       }
     };
