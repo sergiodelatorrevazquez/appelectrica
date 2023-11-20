@@ -12,7 +12,7 @@ import { ShowQuestionsComponent } from 'src/app/shared/components/show-questions
 })
 export class PerfilPage implements OnInit {
 
-  cuestionarios = ['Cuestionario Inicial', 'Cuestionario Avanzado']
+  cuestionarios = ['Cuestionario Inicial']
   respuestas: Answer[] = []
 
   constructor(

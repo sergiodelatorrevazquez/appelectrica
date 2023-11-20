@@ -53,9 +53,9 @@ export class BarChartComponent implements OnInit {
     const values = this.priceTime.map(x => x.value);
 
     const date = new Date()
-    const day = date.getDate();
-    const month = date.getMonth();
     const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
 
     const max = Math.max(...values);
     const min = Math.min(...values);

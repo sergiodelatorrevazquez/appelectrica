@@ -25,7 +25,7 @@
           <div *ngIf="form.controls.password.errors?.['minlenght']">Su contraseña debe tener al menos 6 caracteres.</div>
         </div>
 
-        <app-input [control]="form.controls.confirmPassword" type="password" label="Confirme contraseña"
+        <app-input [control]="form.controls.confirmPassword" type="password" label="Confirma contraseña"
           icon="shield-checkmark-outline"></app-input>
         <div class="validators" *ngIf="form.controls.confirmPassword.errors && form.controls.confirmPassword.dirty">
           <div *ngIf="form.controls.confirmPassword.errors?.['required']">Inserte su contraseña.</div>
