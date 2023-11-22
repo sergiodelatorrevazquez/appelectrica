@@ -19,6 +19,7 @@ export class NewFormComponent implements OnInit {
   questionsStorage: Question[];
 
   cnt = 0;
+  id: string;
   pregunta: string;
   respuestas: string[];
 
@@ -38,6 +39,7 @@ export class NewFormComponent implements OnInit {
     this.cuestionario = this.utilsService.getElementFromLocalStorage('cuestionario');
     if(this.cuestionario == 1) this.questionsStorage = questionsStorage;
 
+    this.id = this.questionsStorage[this.cnt].id;
     this.pregunta = this.questionsStorage[this.cnt].pregunta;
     this.respuestas = this.questionsStorage[this.cnt].respuestas;
     this.cnt++;
@@ -45,6 +47,7 @@ export class NewFormComponent implements OnInit {
 
   onSubmit(){
     this.answer = {
+      id: this.id,
       pregunta: this.pregunta,
       respuesta: this.form.value.respuesta
     }
@@ -63,6 +66,7 @@ export class NewFormComponent implements OnInit {
   }
 
   next(){
+    this.id = this.questionsStorage[this.cnt].id;
     this.pregunta = this.questionsStorage[this.cnt].pregunta;
     this.respuestas = this.questionsStorage[this.cnt].respuestas;
     this.cnt++;

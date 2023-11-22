@@ -1,5 +1,5 @@
 export interface Answer{
-    id?: string,
+    id: string,
     pregunta: string,
     respuesta: string
 }
