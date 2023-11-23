@@ -66,6 +66,11 @@ export class FirebaseService {
     return querySnapshot;
   }
 
+  async getProfiles(path: string){
+    const querySnapshot = await getDocs(collection(this.db, path));
+    return querySnapshot;
+  }
+
   async addAPI(priceTime: PriceTime[]){
     await setDoc(doc(this.db, "API", "Uq8OLkPDnMbEcIlGdxVD"), { 'priceTime': priceTime });
   }

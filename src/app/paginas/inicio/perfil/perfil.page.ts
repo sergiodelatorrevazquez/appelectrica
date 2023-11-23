@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Answer } from 'src/app/models/answer.model';
 import { UtilsService } from 'src/app/services/utils.service';
 import { ShowQuestionsComponent } from 'src/app/shared/components/show-questions/show-questions.component';
 
@@ -11,7 +10,6 @@ import { ShowQuestionsComponent } from 'src/app/shared/components/show-questions
 export class PerfilPage implements OnInit {
 
   cuestionarios = ['Cuestionario Inicial']
-  respuestas: Answer[] = []
 
   constructor(
     private utilsService: UtilsService

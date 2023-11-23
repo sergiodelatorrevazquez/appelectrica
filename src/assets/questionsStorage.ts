@@ -39,6 +39,7 @@ export const questionsStorage = [
       {
         id: '7',
         pregunta: '¿Cuál ha sido tu consumo energético en el último mes?',
-        respuestas: ['NS/NC', 'Hasta 50 kWh', 'Entre 50 y 100 kWh', 'Entre 100 y 200 kWh', 'Más de 200 kWh']
+        respuestas: ['NS/NC', 'Hasta 150 kWh', 'Entre 150 y 250 kWh', 'Entre 250 y 350 kWh', 
+          'Entre 350 y 450 kWh', 'Entre 450 y 550 kWh', 'Más de 550 kWh']
       }
 ]
