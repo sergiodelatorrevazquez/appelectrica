@@ -1,0 +1,104 @@
+<ion-content color="light">
+
+  <app-header-modal></app-header-modal>
+
+  <div class="content ion-text-center">
+
+    <ion-grid>
+
+      <div *ngIf="!coche">
+
+        <ion-row>
+
+          <ion-col size="6">
+
+            <div class="appliance">
+
+              <ion-text mode="ios">
+                <h4>Lavavajillas</h4>
+              </ion-text>
+
+              <app-question [respuestas]="respuestas1" [control]="form1.controls.lavavajillas"></app-question>
+
+            </div>
+
+          </ion-col>
+
+          <ion-col size="6">
+
+            <div class="appliance">
+
+              <ion-text mode="ios">
+                <h4>Lavadora</h4>
+              </ion-text>
+
+              <app-question [respuestas]="respuestas1" [control]="form1.controls.lavadora"></app-question>
+
+            </div>
+
+          </ion-col>
+
+          <ion-col size="6">
+
+            <div class="appliance">
+
+              <ion-text mode="ios">
+                <h4>Secadora</h4>
+              </ion-text>
+
+              <app-question [respuestas]="respuestas1" [control]="form1.controls.secadora"></app-question>
+
+            </div>
+
+          </ion-col>
+
+          <ion-col size="6">
+
+            <div class="appliance">
+
+              <ion-text mode="ios">
+                <h4>Plancha</h4>
+              </ion-text>
+
+              <app-question [respuestas]="respuestas1" [control]="form1.controls.plancha"></app-question>
+
+            </div>
+
+          </ion-col>
+
+        </ion-row>
+
+      </div>
+
+      <div *ngIf="coche">
+
+        <ion-row>
+
+          <ion-col size="12">
+
+            <div class="appliance">
+
+              <ion-text mode="ios">
+                <h4>¿Cuántas horas vas a estar tu coche eléctrico cargando?</h4>
+              </ion-text>
+
+              <app-question [respuestas]="respuestas2" [control]="form2.controls.coche"></app-question>
+
+            </div>
+
+          </ion-col>
+
+        </ion-row>
+
+      </div>
+
+    </ion-grid>
+
+    <ion-button (click)="onClick()" class="ion-margin-vertical" shape="round" mode="ios">
+      Planificar
+      <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,57 @@
+<ion-content color="light">
+
+  <app-header-modal></app-header-modal>
+
+  <div class="content ion-text-center">
+
+    <ion-card *ngIf="!hayCoche" mode="ios">
+
+      <div class="title">
+        Planificación de electrodomésticos
+      </div>
+
+      <div *ngIf="!maxHour">
+
+        <div *ngIf="appliance(lavavajillas)" class="cont">
+          La mejor hora para usar tu programa de lavavajillas es las {{ lavavajillas }} horas.
+        </div>
+
+        <div *ngIf="appliance(lavadora)" class="cont">
+          El mejor momento para poner la lavadora es las {{ lavadora }} horas.
+        </div>
+
+        <div *ngIf="appliance(secadora)" class="cont">
+          Si pones la secadora a las {{ secadora }} horas, ahorrarás dinero.
+        </div>
+
+        <div *ngIf="appliance(plancha)" class="cont">
+          Puedes usar la plancha a las {{ plancha }} horas.
+        </div>
+
+      </div>
+
+      <div *ngIf="maxHour">
+
+        <div class="cont">
+          El total de horas seleccionadas excede el número de horas restantes del día.
+        </div>
+
+      </div>
+
+    </ion-card>
+
+    <ion-card *ngIf="hayCoche" mode="ios">
+
+      <div class="title">
+        Planificación de coche eléctrico
+      </div>
+
+      <div class="cont">
+        Puedes cargar tu coche eléctrico a las {{ coche }} horas.
+      </div>
+
+    </ion-card>
+
+  </div>
+
+</ion-content>

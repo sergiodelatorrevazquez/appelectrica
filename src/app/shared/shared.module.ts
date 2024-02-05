@@ -12,6 +12,9 @@ import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { RecoverComponent } from './components/recover/recover.component';
 import { HeaderModalComponent } from './components/header-modal/header-modal.component';
 import { ShowQuestionsComponent } from './components/show-questions/show-questions.component';
+import { PieChartComponent } from './components/pie-chart/pie-chart.component';
+import { SelectApplianceComponent } from './components/select-appliance/select-appliance.component';
+import { ShowApplianceComponent } from './components/show-appliance/show-appliance.component';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import { ShowQuestionsComponent } from './components/show-questions/show-questio
     BarChartComponent,
     RecoverComponent,
     HeaderModalComponent,
-    ShowQuestionsComponent
+    ShowQuestionsComponent,
+    PieChartComponent,
+    SelectApplianceComponent,
+    ShowApplianceComponent
   ],
   exports: [
     InputComponent,
@@ -33,7 +39,10 @@ import { ShowQuestionsComponent } from './components/show-questions/show-questio
     BarChartComponent,
     RecoverComponent,
     HeaderModalComponent,
-    ShowQuestionsComponent
+    ShowQuestionsComponent,
+    PieChartComponent,
+    SelectApplianceComponent,
+    ShowApplianceComponent
   ],
   imports: [
     CommonModule,

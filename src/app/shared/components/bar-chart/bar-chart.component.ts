@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input, SimpleChanges, } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { PriceTime } from 'src/app/models/price-time.model';
 import {
   ApexAxisChartSeries,
@@ -32,7 +32,6 @@ export class BarChartComponent implements OnInit {
 
   @Input() priceTime: PriceTime[];
   @Input() mean: number;
-  @Input() darkMode: boolean;
 
   @ViewChild("chart") chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;;
@@ -82,17 +81,17 @@ export class BarChartComponent implements OnInit {
               {
                 from: min,
                 to: this.mean - this.mean*0.1,
-                color: "#2dd36f"
+                color: "#6AC49C"
               },
               {
                 from: this.mean - this.mean*0.1,
                 to: this.mean + this.mean*0.1,
-                color: "#ffc409"
+                color: "#F5D94C"
               },
               {
                 from: this.mean + this.mean*0.1,
                 to: max,
-                color: "#eb445a"
+                color: "#F05365"
               }
             ]
           }

@@ -1,0 +1,58 @@
+<ion-content>
+  
+  <app-header></app-header>
+
+  <div class="content ion-text-center">
+
+    <ion-grid>
+
+      <ion-row>
+
+        <ion-col size="12">
+          
+          <ion-card mode="ios">
+
+            <div class="title">
+              Electrodomésticos
+            </div>
+
+            <div class="cont">
+              Planifica el momento perfecto para usar tus electrodomésticos.
+            </div>
+
+            <ion-button (click)="onClickElectrodomestico()" class="ion-margin-vertical" shape="round">
+              Planificar
+              <ion-icon slot="end" name="bulb-outline"></ion-icon>
+            </ion-button>
+
+          </ion-card>
+
+        </ion-col>
+
+        <ion-col size="12">
+          
+          <ion-card mode="ios">
+
+            <div class="title">
+              Coche eléctrico
+            </div>
+
+            <div class="cont">
+              Planifica el momento perfecto para cargar tu coche eléctrico.
+            </div>
+
+            <ion-button (click)="onClickCoche()" class="ion-margin-vertical" shape="round">
+              Planificar
+              <ion-icon slot="end" name="car-outline"></ion-icon>
+            </ion-button>
+
+          </ion-card>
+
+        </ion-col>
+
+      </ion-row>
+
+    </ion-grid>
+
+  </div>  
+</ion-content>

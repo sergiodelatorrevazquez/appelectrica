@@ -1,0 +1,48 @@
+<ion-content>
+  
+  <app-header></app-header>
+
+  <div class="content ion-text-center">
+
+    <ion-grid>
+
+      <ion-row>
+
+        <ion-col size="12">
+
+            <div class="cont">
+              <h1>{{ recomendacion }}</h1>
+            </div>
+
+            <div class="cont bar">
+              <app-pie-chart [percentaje]="porcentaje"></app-pie-chart>
+            </div>
+
+        </ion-col>
+
+        <ion-col size="12">
+          
+          <ion-card mode="ios">
+
+            <div class="title">
+              ¡Recuerda!
+            </div>
+
+            <div class="cont">
+              1. Cuanto más pequeña sea la barra, más estarás ahorrando.
+            </div>
+
+            <div class="cont">
+              2. Actualiza periódicamente los cuestionarios en la pestaña Mis datos para recibir información efectiva y visita la pestaña Recomendaciones para conocer como seguir ahorrando.
+            </div>
+
+          </ion-card>
+
+        </ion-col>
+
+      </ion-row>
+
+    </ion-grid>
+
+  </div>  
+</ion-content>

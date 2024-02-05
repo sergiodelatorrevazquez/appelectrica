@@ -6,9 +6,12 @@
 
     <h4>{{ pregunta }}</h4>
 
-    <app-question [respuestas]="respuestas" [control]="form.controls.respuesta"></app-question>
+    <app-input *ngIf="rellenar" [control]="form.controls.respuesta" type="text"></app-input>
+
+    <app-question *ngIf="!rellenar" [respuestas]="respuestas" [control]="form.controls.respuesta"></app-question>
+
     <div class="validators" *ngIf="form.controls.respuesta.errors && form.controls.respuesta.dirty">
-      <div *ngIf="form.controls.respuesta.errors?.['required']">Seleccione uno.</div>
+      <div *ngIf="form.controls.respuesta.errors?.['required']">Inserta o selecciona uno.</div>
     </div>
 
     <ion-button class="ion-margin-vertical" [disabled]="form.invalid" type="submit" shape="round" mode="ios">
@@ -17,4 +20,5 @@
     </ion-button>
 
   </div>
+  
 </form>

@@ -1,25 +1,16 @@
 export const questionsStorage = [
     {
         id: '1',
-        pregunta: '¿En que provincia está ubicado el hogar?',
-        respuestas: ['NS/NC', 'Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias', 'Ávila', 'Badajoz',
-          'Barcelona', 'Burgos', 'Cáceres', 'Cádiz', 'Cantabria', 'Castellón', 'Ciudad Real', 'Córdoba',
-          'La Coruña', 'Cuenca', 'Gerona', 'Granada', 'Guadalajara', 'Guipúzcoa', 'Huelva', 'Huesca',
-          'Baleares', 'Jaén', 'León', 'Lérida', 'Lugo', 'Madrid', 'Málaga', 'Murcia', 'Navarra', 'Orense',
-          'Palencia', 'Las Palmas', 'Pontevedra', 'La Rioja', 'Salamanca', 'Segovia', 'Sevilla', 'Soria',
-          'Tarragona', 'Santa Cruz de Tenerife', 'Teruel', 'Toledo', 'Valencia', 'Valladolid', 'Vizcaya',
-          'Zamora', 'Zaragoza']
+        pregunta: '¿Cuál es tu Código Postal? (Si no quieres responder inserta 0).'
       },
       {
         id: '2',
-        pregunta: '¿Cuánto mide tu casa?',
-        respuestas: ['NS/NC', 'Menos de 60 metros cuadrados', 'De 60 a 120 metros cuadrados',
-          'Más de 120 metros cuadrados']
+        pregunta: '¿Tu hogar se trata de un piso o una vivienda unifamiliar?',
+        respuestas: ['NS/NC', 'Piso', 'Vivienda unifamiliar']
       },
       {
         id: '3',
-        pregunta: '¿Hay alguna persona en tu casa que pueda hacer tareas del hogar de lunes a viernes en horario laboral?',
-        respuestas: ['NS/NC', 'No', 'Sí']
+        pregunta: '¿Cuántas personas viven el casa? (Si no quieres responder inserta 0).'
       },
       {
         id: '4',
@@ -28,16 +19,26 @@ export const questionsStorage = [
       },
       {
         id: '5',
+        pregunta: '¿De que forma se calienta el agua de uso sanitario en tu casa?',
+        respuestas: ['NS/NC', 'Eléctricamente', 'Gas natural, butano o propano']
+      },
+      {
+        id: '6',
+        pregunta: '¿Posees una cocina eléctrica o de gas?',
+        respuestas: ['NS/NC', 'Eléctrica', 'Gas natural, butano o propano']
+      },
+      {
+        id: '7',
         pregunta: '¿Tienes aire acondicionado en casa?',
         respuestas: ['NS/NC', 'No', 'Sí']
       },
       {
-        id: '6',
+        id: '8',
         pregunta: '¿Cuentas con una instalación de autoconsumo en casa?',
         respuestas: ['NS/NC', 'No', 'Sí']
       },
       {
-        id: '7',
+        id: '9',
         pregunta: '¿Cuál ha sido tu consumo energético en el último mes?',
         respuestas: ['NS/NC', 'Hasta 150 kWh', 'Entre 150 y 250 kWh', 'Entre 250 y 350 kWh', 
           'Entre 350 y 450 kWh', 'Entre 450 y 550 kWh', 'Más de 550 kWh']

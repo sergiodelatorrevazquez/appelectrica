@@ -19,6 +19,14 @@ const routes: Routes = [
       {
         path: 'home',
         loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+      },
+      {
+        path: 'ranking',
+        loadChildren: () => import('./ranking/ranking.module').then( m => m.RankingPageModule)
+      },
+      {
+        path: 'planificador',
+        loadChildren: () => import('./planificador/planificador.module').then( m => m.PlanificadorPageModule)
       }
     ]
   }

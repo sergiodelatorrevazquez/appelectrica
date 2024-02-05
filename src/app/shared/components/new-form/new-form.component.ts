@@ -17,6 +17,7 @@ export class NewFormComponent implements OnInit {
   usuario = {} as Usuario;
   cuestionario: number;
   questionsStorage: Question[];
+  rellenar: boolean;
 
   cnt = 0;
   id: string;
@@ -41,7 +42,12 @@ export class NewFormComponent implements OnInit {
 
     this.id = this.questionsStorage[this.cnt].id;
     this.pregunta = this.questionsStorage[this.cnt].pregunta;
-    this.respuestas = this.questionsStorage[this.cnt].respuestas;
+    if(this.questionsStorage[this.cnt].respuestas == null){
+      this.rellenar = true;
+    } else{
+      this.rellenar = false;
+      this.respuestas = this.questionsStorage[this.cnt].respuestas;
+    }
     this.cnt++;
   }
 
@@ -68,7 +74,13 @@ export class NewFormComponent implements OnInit {
   next(){
     this.id = this.questionsStorage[this.cnt].id;
     this.pregunta = this.questionsStorage[this.cnt].pregunta;
-    this.respuestas = this.questionsStorage[this.cnt].respuestas;
+    console.log(this.questionsStorage[this.cnt].respuestas)
+    if(this.questionsStorage[this.cnt].respuestas == null){
+      this.rellenar = true;
+    } else{
+      this.rellenar = false;
+      this.respuestas = this.questionsStorage[this.cnt].respuestas;
+    }
     this.cnt++;
   }
 
