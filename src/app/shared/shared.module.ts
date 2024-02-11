@@ -15,6 +15,7 @@ import { ShowQuestionsComponent } from './components/show-questions/show-questio
 import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 import { SelectApplianceComponent } from './components/select-appliance/select-appliance.component';
 import { ShowApplianceComponent } from './components/show-appliance/show-appliance.component';
+import { BarChart1Component } from './components/bar-chart1/bar-chart1.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ShowApplianceComponent } from './components/show-appliance/show-applian
     ShowQuestionsComponent,
     PieChartComponent,
     SelectApplianceComponent,
-    ShowApplianceComponent
+    ShowApplianceComponent,
+    BarChart1Component
   ],
   exports: [
     InputComponent,
@@ -42,7 +44,8 @@ import { ShowApplianceComponent } from './components/show-appliance/show-applian
     ShowQuestionsComponent,
     PieChartComponent,
     SelectApplianceComponent,
-    ShowApplianceComponent
+    ShowApplianceComponent,
+    BarChart1Component
   ],
   imports: [
     CommonModule,

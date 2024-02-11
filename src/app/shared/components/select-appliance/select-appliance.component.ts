@@ -30,6 +30,9 @@ export class SelectApplianceComponent implements OnInit {
   respuestas1 = ["0 horas", "1 hora", "2 horas", "3 horas"];
   respuestas2 = ["0 horas", "1 hora", "2 horas", "3 horas", "4 horas",
     "5 horas", "6 horas", "7 horas", "8 horas", "9 horas", "10 horas"];
+  respuestas3 = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
+                 "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21",
+                 "22", "23"];
 
   form1 = new FormGroup({
     lavavajillas: new FormControl('', Validators.required),
@@ -40,6 +43,10 @@ export class SelectApplianceComponent implements OnInit {
 
   form2 = new FormGroup({
     coche: new FormControl('', Validators.required)
+  })
+
+  form3 = new FormGroup({
+    hora: new FormControl(' ', Validators.required)
   })
 
   constructor(navParams: NavParams, private utilsService: UtilsService) {
@@ -64,11 +71,9 @@ export class SelectApplianceComponent implements OnInit {
   }
 
   async onClick() {
-    let hour = new Date().getHours().toString();
-    if (hour.length == 1) {
-      hour = `0${hour}`;
-    }
-    const priceTimeFilter = this.priceTime.filter(x => +x.time >= +hour);
+    let selectedTime = +this.form3.value.hora.substring(0, 2);
+
+    let priceTimeFilter = this.priceTime.filter(x => +x.time >= selectedTime);
 
     if (!this.coche) {
       let lavavajillas = +this.form1.value.lavavajillas.substring(0, 1);
@@ -76,6 +81,9 @@ export class SelectApplianceComponent implements OnInit {
       let secadora = +this.form1.value.secadora.substring(0, 1);
       let plancha = +this.form1.value.plancha.substring(0, 1);
       let total = lavavajillas + lavadora + secadora + plancha;
+
+      let priceTime3 = this.priceTimeCalculator(3, priceTimeFilter);
+      let priceTime2 = this.priceTimeCalculator(2, priceTimeFilter);
 
       if (total > priceTimeFilter.length) {
         this.maxHour = true;
@@ -147,7 +155,7 @@ export class SelectApplianceComponent implements OnInit {
             let mean = 0;
             for (let j = i; j < i + secadora; j++) {
               mean += priceTimeFilter[j].value;
-              if(j != i && priceTimeFilter[j-1].time + 1 != (priceTimeFilter[j].time)){
+              if (j != i && priceTimeFilter[j - 1].time + 1 != (priceTimeFilter[j].time)) {
                 continuo = false;
               }
             }
@@ -171,12 +179,17 @@ export class SelectApplianceComponent implements OnInit {
           'lavavajillas': this.lavavajillasHour,
           'lavadora': this.lavadoraHour,
           'secadora': this.secadoraHour,
-          'plancha': this.planchaHour
+          'plancha': this.planchaHour,
+          'priceTime3': priceTime3,
+          'priceTime2': priceTime2
         }
       })
 
     } else {
       let coche = +this.form2.value.coche.substring(0, 1);
+
+      let priceTimeCoche = this.priceTimeCalculator(coche, priceTimeFilter);
+
       if (coche > 0) {
         let minValue = 0;
         let minPos = 0;
@@ -200,10 +213,31 @@ export class SelectApplianceComponent implements OnInit {
         cssClass: 'modal',
         componentProps: {
           'hayCoche': this.coche,
-          'coche': this.cocheHour
+          'coche': this.cocheHour,
+          'priceTimeCoche': priceTimeCoche
         }
       })
     }
+  }
+
+  priceTimeCalculator(hour: number, price: PriceTime[]) {
+    let minValue = 0;
+    let finalPriceTime: PriceTime[];
+    for (let i = 0; i < price.length - hour; i++) {
+      let mean = 0;
+      let priceTime: PriceTime[] = [];
+      for (let j = i; j < i + hour; j++) {
+        mean += price[j].value;
+        priceTime.push(price[j]);
+      }
+      mean = mean / hour;
+      if (i == 0 || mean <= minValue) {
+        minValue = mean;
+        finalPriceTime = priceTime
+      }
+    }
+
+    return finalPriceTime;
   }
 
 }
