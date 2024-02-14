@@ -12,7 +12,7 @@ export class ShowApplianceComponent implements OnInit {
   lavavajillas: string;
   lavadora: string;
   secadora: string;
-  plancha: string;
+  cocina: string;
   coche: string;
 
   hayCoche: boolean;
@@ -28,7 +28,7 @@ export class ShowApplianceComponent implements OnInit {
       this.lavavajillas = navParams.get('lavavajillas');
       this.lavadora = navParams.get('lavadora');
       this.secadora = navParams.get('secadora');
-      this.plancha = navParams.get('plancha');
+      this.cocina = navParams.get('cocina');
       this.priceTime3 = navParams.get('priceTime3');
       this.priceTime2 = navParams.get('priceTime2');
     } else {

@@ -21,7 +21,7 @@ export class SelectApplianceComponent implements OnInit {
   lavavajillasHour: string = "-1";
   lavadoraHour: string = "-1";
   secadoraHour: string = "-1";
-  planchaHour: string = "-1";
+  cocinaHour: string = "-1";
   cocheHour: string = "-1";
 
   coche: boolean;
@@ -38,7 +38,7 @@ export class SelectApplianceComponent implements OnInit {
     lavavajillas: new FormControl('', Validators.required),
     lavadora: new FormControl('', Validators.required),
     secadora: new FormControl('', Validators.required),
-    plancha: new FormControl('', Validators.required)
+    cocina: new FormControl('', Validators.required)
   })
 
   form2 = new FormGroup({
@@ -79,8 +79,8 @@ export class SelectApplianceComponent implements OnInit {
       let lavavajillas = +this.form1.value.lavavajillas.substring(0, 1);
       let lavadora = +this.form1.value.lavadora.substring(0, 1);
       let secadora = +this.form1.value.secadora.substring(0, 1);
-      let plancha = +this.form1.value.plancha.substring(0, 1);
-      let total = lavavajillas + lavadora + secadora + plancha;
+      let cocina = +this.form1.value.cocina.substring(0, 1);
+      let total = lavavajillas + lavadora + secadora + cocina;
 
       let priceTime3 = this.priceTimeCalculator(3, priceTimeFilter);
       let priceTime2 = this.priceTimeCalculator(2, priceTimeFilter);
@@ -90,22 +90,22 @@ export class SelectApplianceComponent implements OnInit {
       }
       else {
         this.maxHour = false;
-        if (plancha > 0) {
+        if (cocina > 0) {
           let minValue = 0;
           let minPos = 0;
-          for (let i = 0; i < priceTimeFilter.length - plancha; i++) {
+          for (let i = 0; i < priceTimeFilter.length - cocina; i++) {
             let mean = 0;
-            for (let j = i; j < i + plancha; j++) {
+            for (let j = i; j < i + cocina; j++) {
               mean += priceTimeFilter[j].value;
             }
-            mean = mean / plancha;
+            mean = mean / cocina;
             if (i == 0 || mean <= minValue) {
               minValue = mean;
               minPos = i;
             }
           }
 
-          this.planchaHour = priceTimeFilter[minPos].time;
+          this.cocinaHour = priceTimeFilter[minPos].time;
         }
 
         if (lavavajillas > 0) {
@@ -179,7 +179,7 @@ export class SelectApplianceComponent implements OnInit {
           'lavavajillas': this.lavavajillasHour,
           'lavadora': this.lavadoraHour,
           'secadora': this.secadoraHour,
-          'plancha': this.planchaHour,
+          'plancha': this.cocinaHour,
           'priceTime3': priceTime3,
           'priceTime2': priceTime2
         }

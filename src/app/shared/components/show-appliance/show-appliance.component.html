@@ -24,8 +24,8 @@
           Si pones la secadora a las {{ secadora }} horas, ahorrarás dinero.
         </div>
 
-        <div *ngIf="appliance(plancha)" class="cont">
-          Puedes usar la plancha a las {{ plancha }} horas.
+        <div *ngIf="appliance(cocina)" class="cont">
+          Puedes usar la plancha a las {{ cocina }} horas.
         </div>
 
       </div>
@@ -38,6 +38,18 @@
 
       </div>
 
+    </ion-card>
+
+    <ion-card *ngIf="!hayCoche">
+
+      <div class="title">
+        ¡Atención!
+      </div>
+
+      <div class="cont">
+        Ten en cuenta tu potencia contratada a la hora de usar dos electrodomésticos a la vez.
+      </div>
+      
     </ion-card>
 
     <ion-card *ngIf="hayCoche" mode="ios">
